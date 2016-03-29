@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Central Maryland Martial Arts</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+
+    {% load staticfiles %}
+    {% load sass_tags %}
+
+    <link href="{% sass_src 'scss/style.scss' %}" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+
+    <header>
+
+        <div id="logo">
+            <img src="{% static "images/logo.png" %}">
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#">Member Login</a></li>
+                <li><a href="#">Schedule</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="/staff/">Instructors</a></li>
+                <li><a href="/location/">Location</a></li>
+            </ul>
+        </nav>
+
+    </header>
+    
+    <section id="main">
+
+    {% block content %}{% endblock %}
+
+    </section>
+
+</body>
+
+</html>

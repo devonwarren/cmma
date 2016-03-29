@@ -37,6 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # contrib
+    'imagekit',
+    'sass_processor',
+    # custom
+    'programs',
+    'staff',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -55,9 +61,10 @@ ROOT_URLCONF = 'cmma.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, '../templates'), ],
         'APP_DIRS': True,
         'OPTIONS': {
+            'debug': False,
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
@@ -106,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/New_York'
 
 USE_I18N = True
 
@@ -119,3 +126,27 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, '../static'),
+)
+
+STATIC_ROOT = os.path.join(BASE_DIR, '../static_final')
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'sass_processor.finders.CssFinder',
+)
+
+SASS_PROCESSOR_INCLUDE_DIRS = (
+    os.path.join(BASE_DIR, '../static/scss'),
+)
+
+SASS_OUTPUT_STYLE = 'compact'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, '../media')
+
+MEDIA_URL = '/media/'
+
+
