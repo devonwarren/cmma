@@ -2,6 +2,15 @@
 
 {% block content %}
 
-Testing
+<div id="homepage-grid">
+    {% for program in programs %}
+        <div class="program">
+            <a href="{{ program.get_absolute_url }}">
+                <img src="{{ program.image_thumbnail.url }}"><br>
+                <span class="title">{{ program.title }}</span>
+            </a>
+        </div>
+    {% endfor %}
+</div>
 
 {% endblock %}

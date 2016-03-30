@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h2>{{ program.title }}</h2>
+
+    <p>{{ program.description|safe }}</p>
+    
+    <h3>Trainers:</h3>
+    <ul>
+        {% for trainer in trainers %}
+            <li><a href="{{ trainer.get_absolute_url }}">{{ trainer }}</a></li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

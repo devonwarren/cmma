@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # contrib
+    'autoslug',
+    'ckeditor',
+    'ckeditor_uploader',
     'imagekit',
     'sass_processor',
     # custom
@@ -150,3 +153,29 @@ MEDIA_ROOT = os.path.join(BASE_DIR, '../media')
 MEDIA_URL = '/media/'
 
 
+# CKEditor
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': [
+            ['-', 'Bold', 'Italic', 'Underline',
+             '-', 'Link', 'Unlink', 'Styles',
+             '-', 'Blockquote',
+             ],
+            ['-', 'Image',
+             '-', 'BulletedList', 'NumberedList',
+             '-', 'Copy', 'PasteText', 'PasteFromWord',
+             '-', 'Source',
+             ]
+        ],
+        'width': 840,
+        'height': 200,
+        'toolbarCanCollapse': False,
+    }
+}
+
+CKEDITOR_ALLOW_NONIMAGE_FILES = False
