@@ -26,6 +26,12 @@ class Program(models.Model):
         format='JPEG',
         options={'quality': 90})
 
+    youtube_id = models.CharField(
+        max_length=100,
+        help_text='Video ID from YouTube',
+        blank=True,
+        null=True)
+
     trainers = models.ManyToManyField(Trainer)
 
     description = RichTextField()

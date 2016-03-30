@@ -6,3 +6,4 @@ __pycache__/
 .directory
 *.sqlite3
 media/*
+static_final/

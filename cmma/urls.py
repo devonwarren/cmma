@@ -18,13 +18,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from cmma.views import homepage
-from programs.views import program_view
-from staff.views import trainer_view
+from programs.views import program_view, program_list
+from staff.views import trainer_view, trainer_list
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', homepage, name='homepage'),
+    url(r'^program/$', program_list),
     url(r'^program/(?P<slug>.+?)/$', program_view),
+    url(r'^staff/$', trainer_list),
     url(r'^staff/(?P<slug>.+?)/$', trainer_view),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

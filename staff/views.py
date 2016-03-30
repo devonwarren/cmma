@@ -11,5 +11,16 @@ def trainer_view(request, slug):
     return render(
         request,
         'trainer.html',
-        {'trainer': trainer,
-        'programs': programs})
+        {
+            'trainer': trainer,
+            'programs': programs
+        })
+
+
+def trainer_list(request):
+    trainers = Trainer.objects.all()
+
+    return render(
+        request,
+        'trainer_list.html',
+        {'trainers': trainers})

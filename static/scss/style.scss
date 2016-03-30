@@ -47,6 +47,7 @@ header {
             list-style: none;
             display: flex;
             justify-content: space-around;
+            flex-wrap: wrap;
             width: 100%;
             margin: 0;
             padding: 0;
@@ -71,4 +72,8 @@ div#homepage-grid {
             }
         }
     }
+}
+
+section#main {
+    margin: 2rem;
 }

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h2>Trainers</h2>
+
+    <ul>
+        {% for trainer in trainers %}
+            <li><a href="{{ trainer.get_absolute_url }}">{{ trainer }}</a></li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

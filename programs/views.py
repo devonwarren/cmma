@@ -10,5 +10,16 @@ def program_view(request, slug):
     return render(
         request,
         'program.html',
-        {'program': program,
-        'trainers': trainers})
+        {
+            'program': program,
+            'trainers': trainers
+        })
+
+
+def program_list(request):
+    programs = Program.objects.all()
+
+    return render(
+        request,
+        'program_list.html',
+        {'programs': programs})

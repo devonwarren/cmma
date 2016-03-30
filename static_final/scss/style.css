@@ -13,7 +13,7 @@ header div#logo img { max-width: 100%; }
 
 header nav { padding: 1.2rem; background-color: #DAE0E8; }
 
-header nav ul { list-style: none; display: flex; justify-content: space-around; width: 100%; margin: 0; padding: 0; }
+header nav ul { list-style: none; display: flex; justify-content: space-around; flex-wrap: wrap; width: 100%; margin: 0; padding: 0; }
 
 div#homepage-grid { display: flex; justify-content: space-around; flex-wrap: wrap; }
 
@@ -22,5 +22,7 @@ div#homepage-grid div.program { text-align: center; margin: 1rem; }
 div#homepage-grid div.program a { position: relative; }
 
 div#homepage-grid div.program a img { border-radius: 1rem; }
+
+section#main { margin: 2rem; }
 
 /*# sourceMappingURL=../../../../../../../static/scss/style.css.map */
