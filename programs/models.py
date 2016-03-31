@@ -26,6 +26,12 @@ class Program(models.Model):
         format='JPEG',
         options={'quality': 90})
 
+    image_web = ImageSpecField(
+        source='image',
+        processors=[ResizeToFill(width=640, height=390)],
+        format='JPEG',
+        options={'quality': 90})
+
     youtube_id = models.CharField(
         max_length=100,
         help_text='Video ID from YouTube',

@@ -12,6 +12,7 @@ a:link, a:visited, a:hover, a:active {
 body {
     font-family: 'Verdana', sans-serif;
     color: #111;
+    background-color: $secondary-color;
 }
 
 h2 {
@@ -30,9 +31,13 @@ h3 {
 }
 
 header {
+    background-color: #FFF;
+
     div#logo {
-        width: 56px;
         text-align: center;
+        padding-top: 10px;
+        margin: 0 auto;
+        width: 56px;
 
         img {
             max-width: 100%;
@@ -41,7 +46,6 @@ header {
 
     nav {
         padding: 1.2rem;
-        background-color: $secondary-color;
 
         ul {
             list-style: none;
@@ -76,4 +80,13 @@ div#homepage-grid {
 
 section#main {
     margin: 2rem;
+
+    div.image {
+        text-align: center;
+
+        img {
+            max-width:100%;
+            border-radius: 1rem;
+        }
+    }
 }

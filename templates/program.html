@@ -4,8 +4,37 @@
 
     <h2>{{ program.title }}</h2>
 
+    {% if program.youtube_id %}
+    <div class="video">
+        <div style="text-align: center;" id="ytplayer"></div>
+
+        <script>
+          // Load the IFrame Player API code asynchronously.
+          var tag = document.createElement('script');
+          tag.src = "https://www.youtube.com/player_api";
+          var firstScriptTag = document.getElementsByTagName('script')[0];
+          firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+          // Replace the 'ytplayer' element with an <iframe> and
+          // YouTube player after the API code downloads.
+          var player;
+          function onYouTubePlayerAPIReady() {
+            player = new YT.Player('ytplayer', {
+              height: '390',
+              width: '640',
+              videoId: '{{ program.youtube_id }}'
+            });
+          }
+        </script>
+    </div>
+    {% else %}
+    <div class="image">
+        <img src="{{ program.image_web.url }}" alt="{{ program }}">
+    </div>
+    {% endif %}
+
     <p>{{ program.description|safe }}</p>
-    
+
     <h3>Trainers:</h3>
     <ul>
         {% for trainer in trainers %}
