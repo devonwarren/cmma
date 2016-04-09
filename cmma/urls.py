@@ -17,6 +17,7 @@ from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.contrib.auth.views import login, logout
 from cmma.views import homepage
 from programs.views import program_view, program_list
 from staff.views import trainer_view, trainer_list
@@ -29,4 +30,6 @@ urlpatterns = [
     url(r'^program/(?P<slug>.+?)/$', program_view),
     url(r'^staff/$', trainer_list),
     url(r'^staff/(?P<slug>.+?)/$', trainer_view),
+    url(r'^login/$', login),
+    url(r'^logout/$', logout),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

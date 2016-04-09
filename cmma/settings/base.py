@@ -48,7 +48,10 @@ INSTALLED_APPS = [
     'sass_processor',
     # custom
     'programs',
+    'rank',
     'staff',
+    'training_log',
+    'users',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -113,6 +116,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+AUTH_USER_MODEL = 'users.User'
 
 
 # Internationalization
