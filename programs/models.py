@@ -47,3 +47,14 @@ class Program(models.Model):
 
     def get_absolute_url(self):
         return '/program/' + self.slug + '/'
+
+
+class Rank(models.Model):
+    title = models.CharField(max_length=100)
+
+    program = models.ForeignKey(Program)
+
+    requirements = RichTextField(blank=True)
+
+    def __str__(self):
+        return self.title

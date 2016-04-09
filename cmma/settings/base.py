@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'sass_processor',
     # custom
     'programs',
-    'rank',
     'staff',
     'training_log',
     'users',
@@ -175,7 +174,7 @@ CKEDITOR_CONFIGS = {
              '-', 'Link', 'Unlink', 'Styles',
              '-', 'Blockquote',
              ],
-            ['-', 'Image',
+            ['-', 'Image', 'Youtube',
              '-', 'BulletedList', 'NumberedList',
              '-', 'Copy', 'PasteText', 'PasteFromWord',
              '-', 'Source',
@@ -184,6 +183,7 @@ CKEDITOR_CONFIGS = {
         'width': 840,
         'height': 200,
         'toolbarCanCollapse': False,
+        'extraPlugins': 'youtube',
     }
 }
 
