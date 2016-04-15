@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form class="entry-edit" action="" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="form-group {% if field.errors %}has-error{% endif %}">
+        {{ field.label_tag }} {{ field }}
+        {% for error in field.errors %}
+        <div class="control-label">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            {{ error|escape }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">Save</button>
+        <a href="/accounts/profile/" class="btn btn-danger">Cancel</a>
+    </div>
+</form>
+
+
+<script>
+  $(function() {
+    $( "#id_date" ).datepicker({
+      dateFormat: "yy-mm-dd"
+      });
+  });
+</script>
+
+{% endblock %}

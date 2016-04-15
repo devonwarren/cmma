@@ -1,10 +1,13 @@
-@import 'normalize.css';
+@import "jquery-ui.min.css";
+@import "jquery-ui.structure.min.css";
+@import "jquery-ui.theme.min.css";
+
 
 $primary-color: #696A6D;
 $secondary-color: #DAE0E8;
 
 
-a:link, a:visited, a:hover, a:active {
+a:not(.btn):link, a:not(.btn):visited, a:not(.btn):hover, a:not(.btn):active {
     color: $primary-color;
     text-decoration: underline;
 }

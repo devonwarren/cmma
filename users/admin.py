@@ -1,9 +1,15 @@
 from django.contrib import admin
 from users.models import User
+from training_log.models import Entry
+
+
+class EntryInline(admin.StackedInline):
+    model = Entry
+    extra = 0
 
 
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'email', 'is_staff')
+    list_display = ('first_name', 'last_name', 'email', 'is_staff')
     list_filter = ('programs', 'is_staff',)
     fieldsets = (
         (None, {
@@ -18,6 +24,8 @@ class UserAdmin(admin.ModelAdmin):
                 'date_joined'),
         }),
     )
+    inlines = [EntryInline]
+
 
 
 admin.site.register(User, UserAdmin)

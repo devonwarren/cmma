@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+Hello {{ user.first_name }},
+
+<p>You have completed {{ total_hours }} hours.</p>
+
+<p></p><a class="btn btn-default" href="/accounts/log/add/"><span class="glyphicon glyphicon-plus"></span> Add Entry</a></p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Hours</th>
+            <th>Description</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+{% for entry in entries %}
+    <tr>
+        <td>{{ entry.date }}</td>
+        <td>{{ entry.hours }}</td>
+        <td>{{ entry.description }}</td>
+        <td><a href="{{ entry.get_absolute_url }}" class="btn btn-info"><span class="glyphicon glyphicon-edit"></span> Edit</a></td>
+    </tr>
+{% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

@@ -8,10 +8,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
     {% load staticfiles %}
     {% load sass_tags %}
 
-    <link href="{% sass_src 'scss/style.scss' %}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+
+    <link href="{% sass_src 'scss/style.scss' %}" rel="stylesheet" type="text/css">
 
 </head>
 <body>
@@ -24,7 +36,11 @@
 
         <nav>
             <ul>
-                <li><a href="#">Member Login</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="/accounts/logout/">Logout</a></li>
+                {% else %}
+                <li><a href="/accounts/profile/">Member Login</a></li>
+                {% endif %}
                 <li><a href="#">Schedule</a></li>
                 <li><a href="#">Special Events</a></li>
                 <li><a href="/staff/">Instructors</a></li>
@@ -35,6 +51,21 @@
     </header>
     
     <section id="main">
+
+         {% if messages %}
+        <div id="messages">
+            {% for message in messages %}
+                {% if message.tags == 'error' %}
+                    <div class="alert alert-danger">
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        {{ message }}
+                    </div>
+                {% else %}
+                    <div class="alert {% if message.tags %} alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
 
     {% block content %}{% endblock %}
 
