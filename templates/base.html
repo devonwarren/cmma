@@ -38,6 +38,7 @@
             <ul>
                 {% if user.is_authenticated %}
                 <li><a href="/accounts/logout/">Logout</a></li>
+                <li><a href="/accounts/profile/">Dashboard</a></li>
                 {% else %}
                 <li><a href="/accounts/profile/">Member Login</a></li>
                 {% endif %}

@@ -23,6 +23,20 @@ def user_dashboard(request):
         })
 
 
+@login_required
+def materials(request):
+    if request.user:
+        user = User.objects.get(id=request.user.id)
+
+        return render(
+            request,
+            "materials.html",
+            {
+                'ranks': user.ranks.all(),
+            })
+
+
+@login_required
 def edit_entry(request, entry_id=None):
     if request.method == 'POST':
         form = EntryForm(request.POST)

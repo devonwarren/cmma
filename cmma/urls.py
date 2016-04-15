@@ -22,7 +22,7 @@ from django.contrib.flatpages import views
 from cmma.views import homepage
 from programs.views import program_view, program_list
 from staff.views import trainer_view, trainer_list
-from users.views import user_dashboard, edit_entry
+from users.views import user_dashboard, edit_entry, materials
 
 
 urlpatterns = [
@@ -38,5 +38,6 @@ urlpatterns = [
     url(r'^accounts/profile/$', user_dashboard),
     url(r'^accounts/log/add/$', edit_entry),
     url(r'^accounts/log/(?P<entry_id>.+?)/$', edit_entry),
+    url(r'^accounts/materials/$', materials),
     url(r'^(?P<url>.*/)$', views.flatpage),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

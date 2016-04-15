@@ -15,7 +15,7 @@ class UserAdmin(admin.ModelAdmin):
         (None, {
             'fields': (
                 'username', 'first_name', 'last_name', 'is_staff',
-                'is_active', 'programs')
+                'is_active', 'programs', 'ranks')
         }),
         ('Advanced options', {
             'classes': ('collapse',),

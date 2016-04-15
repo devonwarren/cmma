@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for rank in ranks %}
+
+    <h2>{{ rank }}</h2>
+
+    {{ rank.requirements|safe }}
+
+{% endfor %}
+
+{% endblock %}
