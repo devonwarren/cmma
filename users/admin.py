@@ -14,7 +14,7 @@ class UserAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
             'fields': (
-                'username', 'first_name', 'last_name', 'is_staff',
+                'username', 'first_name', 'last_name', 'email', 'is_staff',
                 'is_active', 'programs', 'ranks')
         }),
         ('Advanced options', {

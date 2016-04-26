@@ -17,7 +17,9 @@ from django.conf.urls import url, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.contrib.auth.views import login, logout
+from django.contrib.auth.views import login, logout, \
+    password_reset, password_reset_done, password_reset_confirm, \
+    password_reset_complete
 from django.contrib.flatpages import views
 from cmma.views import homepage
 from programs.views import program_view, program_list
@@ -32,12 +34,25 @@ urlpatterns = [
     url(r'^program/(?P<slug>.+?)/$', program_view),
     url(r'^staff/$', trainer_list),
     url(r'^staff/(?P<slug>.+?)/$', trainer_view),
+
+    # login urls
     url(r'^accounts/login/$', login),
     url(r'^accounts/logout/$', logout),
-    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    url(r'^accounts/password/reset/$', password_reset,
+        {'post_reset_redirect': '/accounts/password/reset/done/'},
+        name="password_reset"),
+    url(r'^accounts/password/reset/done/$', password_reset_done),
+    url(r'^accounts/password/reset/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)/$',
+        password_reset_confirm,
+        {'post_reset_redirect': '/accounts/password/done/'},
+        name="password_reset_confirm"),
+    url(r'^accounts/password/done/$', password_reset_complete),
+
     url(r'^accounts/profile/$', user_dashboard),
     url(r'^accounts/log/add/$', edit_entry),
     url(r'^accounts/log/(?P<entry_id>.+?)/$', edit_entry),
     url(r'^accounts/materials/$', materials),
+
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^(?P<url>.*/)$', views.flatpage),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
