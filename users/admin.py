@@ -9,7 +9,7 @@ class EntryInline(admin.StackedInline):
 
 
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'last_name', 'email', 'is_staff')
+    list_display = ('username', 'first_name', 'last_name', 'email', 'is_staff')
     list_filter = ('programs', 'is_staff',)
     fieldsets = (
         (None, {
