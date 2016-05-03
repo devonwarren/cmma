@@ -1,6 +1,8 @@
 from django.db import models
 from autoslug import AutoSlugField
 from ckeditor.fields import RichTextField
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
 
 
 class Trainer(models.Model):
@@ -15,6 +17,14 @@ class Trainer(models.Model):
         unique=True,
         null=True,
         verbose_name='URL')
+
+    image = models.ImageField(upload_to='staff')
+
+    image_web = ImageSpecField(
+        source='image',
+        processors=[ResizeToFill(width=350, height=250)],
+        format='JPEG',
+        options={'quality': 90})
 
     about = RichTextField()
 

@@ -4,6 +4,12 @@
 
     <h2>{{ trainer }}</h2>
 
+    {% if trainer.image %}
+      <div class="trainer-image">
+        <img src="{{ trainer.image_web.url }}" alt="{{ trainer }}">
+      </p>
+    {% endif %}
+
     <p>{{ trainer.about|safe }}</p>
 
     <h3>Programs:</h3>
