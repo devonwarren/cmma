@@ -23,6 +23,7 @@ from django.contrib.auth.views import login, logout, \
 from django.contrib.flatpages import views
 from cmma.views import homepage
 from programs.views import program_view, program_list
+from blog.views import blog_list
 from staff.views import trainer_view, trainer_list
 from users.views import user_dashboard, edit_entry, materials
 
@@ -32,6 +33,7 @@ urlpatterns = [
     url(r'^$', homepage, name='homepage'),
     url(r'^program/$', program_list),
     url(r'^program/(?P<slug>.+?)/$', program_view),
+    url(r'^blog/$', blog_list),
     url(r'^staff/$', trainer_list),
     url(r'^staff/(?P<slug>.+?)/$', trainer_view),
 

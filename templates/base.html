@@ -42,18 +42,18 @@
                 {% else %}
                 <li><a href="/accounts/profile/">Member Login</a></li>
                 {% endif %}
-                <li><a href="#">Schedule</a></li>
-                <li><a href="#">Special Events</a></li>
+                <li><a href="/schedule/">Schedule</a></li>
                 <li><a href="/staff/">Instructors</a></li>
+                <li><a href="/blog/">Blog</a></li>
                 <li><a href="/location/">Location</a></li>
             </ul>
         </nav>
 
     </header>
-    
+
     <section id="main">
 
-         {% if messages %}
+        {% if messages %}
         <div id="messages">
             {% for message in messages %}
                 {% if message.tags == 'error' %}

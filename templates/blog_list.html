@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for entry in blog %}
+<article>
+
+  <h2>{{ entry.title }}</h2>
+  <time>{{ entry.pub_date }}</time>
+
+  {{ entry.body|safe }}
+
+</article>
+{% empty %}
+<h3>Blog entries are coming soon..</h3>
+{% endfor %}
+
+{% endblock %}

@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'imagekit',
     'sass_processor',
     # custom
+    'blog',
     'programs',
     'staff',
     'training_log',
